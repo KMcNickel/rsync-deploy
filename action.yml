@@ -1,0 +1,25 @@
+name: "RSync Deploy"
+description: "Send files to a remote via rsync"
+inputs:
+  options:
+    description: "Extra command line arguments"
+    required: false
+    default: ""
+  source:
+    description: "The folder withing GITHUB_WORKSPACE to copy"
+    required: false
+    default: ""
+  user:
+    description: "The remote username"
+    required: true
+  host:
+    description: "The remote IP / FQDN"
+    required: true
+  target:
+    description: "The remote folder to send the files to"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/entrypoint.sh
+      shell: bash
