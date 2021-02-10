@@ -6,7 +6,7 @@ inputs:
     required: false
     default: ""
   source:
-    description: "The folder withing GITHUB_WORKSPACE to copy"
+    description: "The folder within GITHUB_WORKSPACE to copy"
     required: false
     default: ""
   user:
