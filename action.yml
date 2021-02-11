@@ -21,7 +21,11 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: chmod +x ${{ github.action_path }}/entrypoint.sh
+    - run: bash ${{ github.action_path }}/entrypoint.sh
       shell: bash
-    - run: ${{ github.action_path }}/entrypoint.sh
-      shell: bash
+      env:
+        INPUT_OPTIONS: ${{ inputs.options }}
+        INPUT_SOURCE: ${{ inputs.source }}
+        INPUT_USER: ${{ inputs.user }}
+        INPUT_HOST: ${{ inputs.host }}
+        INPUT_TARGET: ${{ inputs.target }}
